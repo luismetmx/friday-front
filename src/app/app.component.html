@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,6 +16,42 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul>-->
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <!--<div class="card">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title">Task</h4>
+          </div>
+          <div class="card-body">
+          </div>
+        </div>-->
+        <table class="card table">
+          <thead class="card-header card-header-primary">
+            <tr>
+              <th>Task</th>
+              <th>Owner</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Team</th>
+            </tr>
+          </thead>
+          <tbody class="card-body">
+            <tr *ngFor="let task of tasks">
+              <td>Task Name</td>
+              <td>Task Owner</td>
+              <td>Task Date</td>
+              <td>Task Status</td>
+              <td>Task Team</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
