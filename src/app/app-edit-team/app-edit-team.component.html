@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Team</h4>
+            </div>
+            <div class="card-body">
+                <form  name="fteam" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f = "ngForm" novalidate>
+
+                    <div class="form-group">
+                      <label for="name" class="form-text">
+                        Name
+                      </label>
+                      <input class="form-control" name="name" type="text" [(ngModel)] = "teamName">
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" >Save</button>
+
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>

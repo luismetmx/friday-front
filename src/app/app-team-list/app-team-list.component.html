@@ -1,0 +1,34 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <table class="card table">
+            <thead class="card-header card-header-primary">
+              <tr>
+                <th>Teams</th>
+                <th><a [routerLink]="'/team/0'">
+                    <i class="material-icons">edit</i>
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="card-body">
+              <tr *ngFor="let team of teams">
+                <td>{{team["name"]}}</td>
+                <td>
+                    <!--a-- [routerLink]="['/team/',team.id]"-->
+                    <button (click)="gotoTeamDetails('/team',team.id)" type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task">
+                      <i class="material-icons">edit</i>
+                      <div class="ripple-container"></div>
+                    </button>
+                    <!--a-->
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

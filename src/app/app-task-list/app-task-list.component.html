@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <table class="card table">
+            <thead class="card-header card-header-primary">
+              <tr>
+                <th>Task</th>
+                <th>Owner</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody class="card-body">
+              <tr *ngFor="let task of tasks">
+                <td>Task Name</td>
+                <td>Task Owner</td>
+                <td>Task Date</td>
+                <td>Task Status</td>
+                <td>Task Team</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
