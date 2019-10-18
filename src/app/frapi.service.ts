@@ -40,4 +40,13 @@ export class FrapiService {
   public updateSolution(solutionID: number, solutionData) {
     return this.httpClient.post(`http://${this.FRAPI_URL}/updatesolution/${solutionID}`, solutionData);
   }
+
+  public getExeTasks() {
+    return this.httpClient.get(`http://${this.FRAPI_URL}/executiontasks/`);
+  }
+
+  public getExeTasksByStatus(status: string) {
+    return this.httpClient.get(`http://${this.FRAPI_URL}/executiontasksbystatus/?status=${status}`, );
+  }
+
 }

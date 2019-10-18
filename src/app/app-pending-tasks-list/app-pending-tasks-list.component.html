@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card">
+            <div class="card-head card-header-primary">
+              <h4 class="card-title">Upcomming Tasks</h4>
+            </div>
+          <div class="card-body">
+            <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <tr>
+                <th>Task</th>
+                <th>Comments</th>
+                <th>Resource</th>
+                <th>Phase</th>
+                <th>Target Date</th>
+                <th>Completed Date</th>
+                <th>Status</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <td>{{task.task.name}}</td>
+                <td>{{task.comments}}</td>
+                <td>{{task.resource.name}}</td>
+                <td>{{task.task.phase}}</td>
+                <td>{{task.targetDate | date: 'dd-MMM-yyyy'}}</td>
+                <td>{{task.complDate | date: 'dd/mm/yyyy'}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.task.teamEntity.name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

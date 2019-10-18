@@ -4,12 +4,14 @@ import { AppEditTeamComponent } from './app-edit-team/app-edit-team.component';
 import { AppTaskListComponent } from './app-task-list/app-task-list.component';
 import { AppTeamListComponent } from './app-team-list/app-team-list.component';
 import { AppSolutionListComponent } from './app-solution-list/app-solution-list.component';
+import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
 
 const routes: Routes = [
   { path: 'team/:id', component: AppEditTeamComponent },
   { path: 'solutions', component: AppSolutionListComponent },
   { path: 'teams', component: AppTeamListComponent },
   { path: 'tasks', component: AppTaskListComponent },
+  { path: 'dashboard', component: AppDashboardComponent},
   { path: '', redirectTo: '/tasks', pathMatch: 'full' },
   { path: '**', redirectTo: '/tasks'}
 ];

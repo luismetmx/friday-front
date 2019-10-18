@@ -1,0 +1,9 @@
+.card-header-pending{
+  background: #ff6a13;
+}
+.card-header-completed{
+  background: #78aa00;
+}
+.card-header-inprogress{
+  background: #004f71;
+}

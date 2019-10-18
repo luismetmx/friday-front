@@ -12,7 +12,7 @@
               <tr *ngFor="let solution of solutions">
                 <td>{{solution["name"]}}</td>
                 <td>
-                  <a [routerLink]="['/product/',product.id]"></a>
+                  <a [routerLink]="['/solution/',solution.id]"></a>
                   <button (click)="gotoSolutionDetails('/solution',solution.id)" type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"></div>

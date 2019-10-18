@@ -9,6 +9,10 @@ import { AppTaskListComponent } from './app-task-list/app-task-list.component';
 import { FormsModule } from '@angular/forms';
 import { AppTeamListComponent } from './app-team-list/app-team-list.component';
 import { AppSolutionListComponent } from './app-solution-list/app-solution-list.component';
+import { AppPendingTasksListComponent } from './app-pending-tasks-list/app-pending-tasks-list.component';
+import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
+import { TaskCountComponent } from './task-count/task-count.component';
+import { TaskListEditorComponent } from './task-list-editor/task-list-editor.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { AppSolutionListComponent } from './app-solution-list/app-solution-list.
     AppEditTeamComponent,
     AppTaskListComponent,
     AppTeamListComponent,
-    AppSolutionListComponent
+    AppSolutionListComponent,
+    AppPendingTasksListComponent,
+    AppDashboardComponent,
+    TaskCountComponent,
+    TaskListEditorComponent
   ],
   imports: [
     BrowserModule,
