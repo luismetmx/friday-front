@@ -7,46 +7,47 @@
                 <h4 class="card-title">Project</h4>
             </div>
             <div class="card-body">
-                <form  name="fproject" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f = "ngForm" novalidate>
-
-                    <div class="form-group">
-                      <label for="name" class="form-text">
-                        Name
-                      </label>
-                      <input class="form-control" name="name" type="text" [(ngModel)] = "projectName">
-                    </div>
-                    <div class="form-group">
-                      <label for="solution" class="form-text">
-                        Solution
-                      </label>
-                      <select class="form-control" name="solution" type="text" [(ngModel)] = "projectSolution">
-                        <option value="">--Select--</option>
-                        <option *ngFor="let sol of solutions" value={{sol.id}}>{{sol.name}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="type" class="form-text">
-                        Type
-                      </label>
-                      <select class="form-control" name="type" type="text" [(ngModel)] = "projectType">
-                        <option value="">--Select--</option>
-                        <option *ngFor="let type of types" value={{type}}>{{type}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="phase" class="form-text">
-                        Phase
-                      </label>
-                      <select class="form-control" name="type" type="text" [(ngModel)] = "projectPhase">
-                        <option value="">--Select--</option>
-                        <option *ngFor="let phase of phases" value={{phase}}>{{phase}}</option>
-                      </select>
-                    </div>
-
-
-                    <button class="btn btn-primary" type="submit" >Save</button>
-
-                  </form>
+                  <mat-horizontal-stepper linear>
+                    <mat-step [stepControl]="projectData">
+                      <form [formGroup]="projectData">
+                        <div>
+                        <mat-form-field>
+                          <input matInput placeholder="Name" formControlName="name" required>
+                        </mat-form-field>
+                        </div><div>
+                        <mat-form-field>
+                          <mat-select placeholder="--Solution--" formControlMame="solution" required>
+                            <mat-option>--Solution--</mat-option>
+                            <mat-option *ngFor="let sol of solutions" value={{sol.id}}>{{sol.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        </div><div>
+                        <mat-form-field>
+                          <mat-select placeholder="--Type--" formControlMame="type" required>
+                            <mat-option>--Project Type--</mat-option>
+                            <mat-option *ngFor="let type of types" value={{type}}>{{type}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        </div><div>
+                        <mat-form-field>
+                          <mat-select placeholder="--Phase--" formControlMame="phase" required>
+                            <mat-option>--Phase--</mat-option>
+                            <mat-option *ngFor="let phase of phases" value={{phase}}>{{phase}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <div>
+                          <button mat-button matStepperNext type="button">Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="tasksData">
+                      <h4>Task Editor goes here!!</h4>
+                    </mat-step>
+                    <mat-step [stepControl]="resourcesData">
+                      <h4>Resource Editor goes here!!</h4>
+                    </mat-step>
+                  </mat-horizontal-stepper>
             </div>
           </div>
         </div>
