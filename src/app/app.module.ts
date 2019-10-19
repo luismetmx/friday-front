@@ -13,6 +13,8 @@ import { AppPendingTasksListComponent } from './app-pending-tasks-list/app-pendi
 import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
 import { TaskCountComponent } from './task-count/task-count.component';
 import { TaskListEditorComponent } from './task-list-editor/task-list-editor.component';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { NewProjectComponent } from './new-project/new-project.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TaskListEditorComponent } from './task-list-editor/task-list-editor.com
     AppPendingTasksListComponent,
     AppDashboardComponent,
     TaskCountComponent,
-    TaskListEditorComponent
+    TaskListEditorComponent,
+    ProjectListComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,

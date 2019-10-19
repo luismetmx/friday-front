@@ -46,7 +46,26 @@ export class FrapiService {
   }
 
   public getExeTasksByStatus(status: string) {
-    return this.httpClient.get(`http://${this.FRAPI_URL}/executiontasksbystatus/?status=${status}`, );
+    return this.httpClient.get(`http://${this.FRAPI_URL}/executiontasksbystatus/?status=${status}`);
   }
 
+  public getExeTasksByProject(projectID: number) {
+    return this.httpClient.get(`http://${this.FRAPI_URL}/project/${projectID}/tasks/`);
+  }
+
+  public getProjectTemplate(projectType: string, projectPhase: string) {
+    return this.httpClient.get(`http://${this.FRAPI_URL}/projecttemplate/?type=${projectType}&phase=${projectPhase}`);
+  }
+
+  public getProjects() {
+    return this.httpClient.get(`http://${this.FRAPI_URL}/projects/`);
+  }
+
+  public createProject(projectData) {
+    return this.httpClient.post(`http://${this.FRAPI_URL}/createproject/`, projectData);
+  }
+
+  public createProjectExeTasks(projectID: number, exetasks) {
+    return this.httpClient.post(`http://${this.FRAPI_URL}/project/${projectID}/createtasks/`, exetasks);
+  }
 }

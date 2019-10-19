@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { FrapiService } from '../frapi.service';
 
 @Component({
   selector: 'app-task-list-editor',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list-editor.component.css']
 })
 export class TaskListEditorComponent implements OnInit {
+  tasks;
+  @Input()
+  editorType;
+  @Input()
+  projectID;
 
-  constructor() { }
+  constructor(private frapiService: FrapiService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

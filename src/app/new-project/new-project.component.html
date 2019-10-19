@@ -1,0 +1,55 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Project</h4>
+            </div>
+            <div class="card-body">
+                <form  name="fproject" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f = "ngForm" novalidate>
+
+                    <div class="form-group">
+                      <label for="name" class="form-text">
+                        Name
+                      </label>
+                      <input class="form-control" name="name" type="text" [(ngModel)] = "projectName">
+                    </div>
+                    <div class="form-group">
+                      <label for="solution" class="form-text">
+                        Solution
+                      </label>
+                      <select class="form-control" name="solution" type="text" [(ngModel)] = "projectSolution">
+                        <option value="">--Select--</option>
+                        <option *ngFor="let sol of solutions" value={{sol.id}}>{{sol.name}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="type" class="form-text">
+                        Type
+                      </label>
+                      <select class="form-control" name="type" type="text" [(ngModel)] = "projectType">
+                        <option value="">--Select--</option>
+                        <option *ngFor="let type of types" value={{type}}>{{type}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="phase" class="form-text">
+                        Phase
+                      </label>
+                      <select class="form-control" name="type" type="text" [(ngModel)] = "projectPhase">
+                        <option value="">--Select--</option>
+                        <option *ngFor="let phase of phases" value={{phase}}>{{phase}}</option>
+                      </select>
+                    </div>
+
+
+                    <button class="btn btn-primary" type="submit" >Save</button>
+
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

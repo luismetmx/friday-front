@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <table class="card table">
+            <thead class="card-header card-header-primary">
+              <tr>
+                <th>Projects</th>
+                <th>
+                  <a [routerLink]="'/newproject/'">
+                    <i class="material-icons text-white">add_box</i>
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="card-body">
+              <tr *ngFor="let project of projects">
+                <td>{{project["name"]}}</td>
+                <td>
+                  <a [routerLink]="['/project/',project.id]"></a>
+                  <button (click)="gotoProjectDetails('/project',project.id)" type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Project">
+                    <i class="material-icons">edit</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
