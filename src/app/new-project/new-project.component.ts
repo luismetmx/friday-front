@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FrapiService } from '../frapi.service';
-import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray, AbstractControl, ValidatorFn } from '@angular/forms';
+import { MatSelect } from '@angular/material';
 
 @Component({
   selector: 'app-new-project',
@@ -23,11 +24,13 @@ export class NewProjectComponent implements OnInit {
   constructor(private frapiservice: FrapiService, private formBuilder: FormBuilder) {
     this.projectData = this.formBuilder.group({
       name : '',
-      solution : null,
-      type : null,
-      phase : null
+      solution : '',
+      type : '',
+      phase : ''
     });
   }
+
+  get pD() { return this.projectData.controls; }
 
   ngOnInit() {
     this.frapiservice.getSolutions().subscribe((data) => {

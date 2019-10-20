@@ -9,42 +9,49 @@
             <div class="card-body">
                   <mat-horizontal-stepper linear>
                     <mat-step [stepControl]="projectData">
+                      <ng-template matStepLabel>Project Details</ng-template>
                       <form [formGroup]="projectData">
                         <div>
                         <mat-form-field>
                           <input matInput placeholder="Name" formControlName="name" required>
+                          <mat-error *ngIf="pD['name'].hasError('required')">Please add a project name</mat-error>
                         </mat-form-field>
                         </div><div>
                         <mat-form-field>
-                          <mat-select placeholder="--Solution--" formControlMame="solution" required>
-                            <mat-option>--Solution--</mat-option>
-                            <mat-option *ngFor="let sol of solutions" value={{sol.id}}>{{sol.name}}</mat-option>
+                          <mat-select placeholder="Solution" formControlName="solution" required>
+                            <mat-option></mat-option>
+                            <mat-option *ngFor="let sol of solutions" [value]="sol.id">{{sol.name}}</mat-option>
                           </mat-select>
+                          <mat-error *ngIf="pD['solution'].hasError('required')">Please choose a solution</mat-error>
                         </mat-form-field>
                         </div><div>
                         <mat-form-field>
-                          <mat-select placeholder="--Type--" formControlMame="type" required>
-                            <mat-option>--Project Type--</mat-option>
-                            <mat-option *ngFor="let type of types" value={{type}}>{{type}}</mat-option>
+                          <mat-select placeholder="Type" formControlName="type" required>
+                            <mat-option></mat-option>
+                            <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
                           </mat-select>
+                          <mat-error *ngIf="pD['type'].hasError('required')">Please choose a project type</mat-error>
                         </mat-form-field>
                         </div><div>
                         <mat-form-field>
-                          <mat-select placeholder="--Phase--" formControlMame="phase" required>
-                            <mat-option>--Phase--</mat-option>
-                            <mat-option *ngFor="let phase of phases" value={{phase}}>{{phase}}</mat-option>
+                          <mat-select placeholder="Phase" id="phase" formControlName="phase" name="phase" required>
+                            <mat-option></mat-option>
+                            <mat-option *ngFor="let ph of phases" [value]="ph">{{ph}}</mat-option>
                           </mat-select>
+                          <mat-error *ngIf="pD['phase'].hasError('required')">Please choose a phase</mat-error>
                         </mat-form-field>
                         </div>
                         <div>
-                          <button mat-button matStepperNext type="button">Next</button>
+                          <button mat-button matStepperNext type="button" [disabled]="!projectData.valid" class="btn btn-primary" >Next</button>
                         </div>
                       </form>
                     </mat-step>
                     <mat-step [stepControl]="tasksData">
+                      <ng-template matStepLabel>Project Tasks</ng-template>
                       <h4>Task Editor goes here!!</h4>
                     </mat-step>
                     <mat-step [stepControl]="resourcesData">
+                      <ng-template matStepLabel>Resource Assigment</ng-template>
                       <h4>Resource Editor goes here!!</h4>
                     </mat-step>
                   </mat-horizontal-stepper>
