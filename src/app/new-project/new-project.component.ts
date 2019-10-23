@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FrapiService } from '../frapi.service';
-import { FormControl, FormGroup, Validators, FormBuilder, FormArray, AbstractControl, ValidatorFn } from '@angular/forms';
-import { MatSelect } from '@angular/material';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { ProjectEntity } from '../projectEntity';
 
 @Component({
   selector: 'app-new-project',
@@ -14,6 +14,8 @@ export class NewProjectComponent implements OnInit {
   projectData: FormGroup;
   tasksData: FormArray;
   resourcesData: FormArray;
+
+  project: ProjectEntity;
 
 
   solutions;
@@ -36,6 +38,17 @@ export class NewProjectComponent implements OnInit {
     this.frapiservice.getSolutions().subscribe((data) => {
       this.solutions = data;
     });
+  }
+
+  onStepChange(event) {
+    console.log(event);
+    if (event.previouslySelectedIndex === 0 && event.selectedIndex === 1 ) {
+      this.project = new ProjectEntity();
+      this.project.name = this.pD['name'].value;
+      this.project.type = this.pD['type'].value;
+      this.project.phase = this.pD['phase'].value;
+      this.project.solution = this.pD['solution'].value;
+    }
   }
 
   public onSubmit(formData) {

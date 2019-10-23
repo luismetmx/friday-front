@@ -7,7 +7,7 @@
                 <h4 class="card-title">Project</h4>
             </div>
             <div class="card-body">
-                  <mat-horizontal-stepper linear>
+                  <mat-horizontal-stepper (selectionChange)="onStepChange($event)">
                     <mat-step [stepControl]="projectData">
                       <ng-template matStepLabel>Project Details</ng-template>
                       <form [formGroup]="projectData">
@@ -49,6 +49,10 @@
                     <mat-step [stepControl]="tasksData">
                       <ng-template matStepLabel>Project Tasks</ng-template>
                       <h4>Task Editor goes here!!</h4>
+                      <app-task-list-editor [project]="project" editorType="plan"></app-task-list-editor>
+                      <div>
+                        <button mat-button matStepperNext type="button" class="btn btn-primary" >Next</button>
+                      </div>
                     </mat-step>
                     <mat-step [stepControl]="resourcesData">
                       <ng-template matStepLabel>Resource Assigment</ng-template>

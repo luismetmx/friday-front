@@ -53,8 +53,10 @@ export class FrapiService {
     return this.httpClient.get(`http://${this.FRAPI_URL}/project/${projectID}/tasks/`);
   }
 
-  public getProjectTemplate(projectType: string, projectPhase: string) {
-    return this.httpClient.get(`http://${this.FRAPI_URL}/projecttemplate/?type=${projectType}&phase=${projectPhase}`);
+  public getProjectTemplate(projectType: string, projectPhase: string, solutionID: number) {
+    return this.httpClient.get(
+      `http://${this.FRAPI_URL}/projecttemplate/?type=${projectType}&phase=${projectPhase}&solution=${solutionID}`
+      );
   }
 
   public getProjects() {

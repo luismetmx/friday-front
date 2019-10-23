@@ -1,1 +1,10 @@
+<div *ngIf="project !== undefined">
 <p>task-list-editor works!</p>
+<h4>Name:{{project.name}}</h4>
+<h4>id:{{project.id}}</h4>
+<h4>Solution:{{project.solution}}</h4>
+<h4>Phase:{{project.phase}}</h4>
+<h4>Type:{{project.type}}</h4>
+<h4>templateTasks:</h4>
+<p *ngFor="let tempT of project.getTemplateList()"> {{tempT.name}}</p>
+</div>
